@@ -2,7 +2,7 @@ package com.engeto.ja;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
-import java.util.List;
+
 
 public class Reservation {
     private Room room;

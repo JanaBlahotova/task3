@@ -1,8 +1,7 @@
 package com.engeto.ja;
 import java.time.LocalDate;
 import java.lang.String;
-import java.util.List;
-import java.util.ArrayList;
+
 public class Guest {//O každém hostu musíme uložit jméno, příjmení a datum narození.
     private String firstName;
     private String surname;
