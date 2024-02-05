@@ -1,5 +1,7 @@
 package com.engeto.ja;
 
+import java.math.BigDecimal;
+
 public class Room {/*Hosty vždy ubytováváme na pokojích (room).
 Pokoj je identifikován svým číslem.
 O každém pokoji chceme evidovat:
@@ -11,7 +13,7 @@ O každém pokoji chceme evidovat:
     private int bedcount;
     private boolean hasBalcony;
     private boolean hasSeaview;
-    private double pricePerNight;
+    private BigDecimal pricePerNight;
 
     public int getRoomNo() {
         return roomNo;
@@ -45,15 +47,15 @@ O každém pokoji chceme evidovat:
         this.hasSeaview = hasSeaview;
     }
 
-    public double getPricePerNight() {
+    public BigDecimal getPricePerNight() {
         return pricePerNight;
     }
 
-    public void setPricePerNight(double pricePerNight) {
+    public void setPricePerNight(BigDecimal pricePerNight) {
         this.pricePerNight = pricePerNight;
     }
 
-    public Room(int roomNo, int bedcount, boolean hasBalcony, boolean hasSeaview, double pricePerNight) {
+    public Room(int roomNo, int bedcount, boolean hasBalcony, boolean hasSeaview, BigDecimal pricePerNight) {
         this.roomNo = roomNo;
         this.bedcount = bedcount;
         this.hasBalcony = hasBalcony;
