@@ -2,13 +2,7 @@ package com.engeto.ja;
 
 import java.math.BigDecimal;
 
-public class Room {/*Hosty vždy ubytováváme na pokojích (room).
-Pokoj je identifikován svým číslem.
-O každém pokoji chceme evidovat:
--kolik lůžek tam je (neřeš přistýlky apod.),
--zda má pokoj balkón a
--zda má výhled na moře a
--jaká je cena pokoje za jednu noc (předpokládej, že je cena pevně daná)*/
+public class Room {
     private int roomNo;
     private int bedcount;
     private boolean hasBalcony;

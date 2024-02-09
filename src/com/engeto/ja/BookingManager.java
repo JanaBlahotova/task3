@@ -1,4 +1,5 @@
 package com.engeto.ja;
+import java.util.Arrays;
 import java.util.List;
 import java.util.ArrayList;
 public class BookingManager {
@@ -11,22 +12,65 @@ public class BookingManager {
     public void addReservation(Reservation reservation){
         reservations.add(reservation);
     }
+
+    public List<Reservation> getReservations() {
+        return reservations;
+    }
+
+       public void setReservations(List<Reservation> reservations) {
+        this.reservations = reservations;
+    }
+
     public void getBookings(){
-        for (Reservation reservation : reservations){
+        reservations.forEach(reservation -> {
             System.out.println("Room: " + reservation.getRoom().getRoomNo());
             System.out.println("Arrival: " + reservation.getArrival());
             System.out.println("Checkout: " + reservation.getCheckout());
             System.out.println("Type of journey: " + reservation.getIsPrivateVacationAsString());
             System.out.println("Guests:");
-            for (Guest guest : reservation.getGuests()) {
-                System.out.println("  " + guest.getFirstName() + " " + guest.getSurname());
-            }
+
+            reservation.getGuests().forEach(guest -> System.out.println("  " + guest.getFirstName() + " " + guest.getSurname()));
+
             System.out.println("**********************");
+        });}
+
+        public void clearBookings(){
+        reservations.clear();
         }
-    }
-    public void clearBookings(){
+        public double getAverageGuests() {
+        if (reservations.isEmpty()) {
+            return 0.0;
+        }
+
+        int totalGuests = 0;
+
+        for (Reservation reservation : reservations) {
+            totalGuests += reservation.getGuests().size();
+        }
+
+        return (double) totalGuests / reservations.size();
+        }
+        public int getNumberOfWorkingBookings() {
+            int count = 0;
+            for (Reservation reservation : reservations) {
+                if (!!reservation.isPrivateVacation()) {
+                    count++;
+                }
+            }
+            return count;
+        }
+
+        public Reservation getBooking (int index){
+                    if (index>=0 && index < reservations.size()){
+                        return reservations.get(index);
+                    }
+                    else {return null;}
 
     }
+
+
+
+
 
 
 }

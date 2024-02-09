@@ -14,6 +14,11 @@ public class Reservation {
     public Reservation(ArrayList<Guest> guests) {
         this.guests = guests;
     }
+
+    public ArrayList<Guest> getGuests() {
+        return guests;
+    }
+
     public void addGuest(Guest guest){
         guests.add(guest);
     }
@@ -53,12 +58,14 @@ public class Reservation {
         this.checkout = checkout;
     }
 
-    public ArrayList<Guest> getGuests() {
-        return guests;
+    int GuestsPerReservation = 0;
+
+    public int getGuestsPerReservation() {
+        return GuestsPerReservation;
     }
 
-    public void setGuests(ArrayList<Guest> guests) {
-        this.guests = guests;
+    public void setGuestsPerReservation(int guestsPerReservation) {
+        GuestsPerReservation = guestsPerReservation;
     }
 
     public boolean isPrivateVacation() {
@@ -68,5 +75,6 @@ public class Reservation {
     public void setPrivateVacation(boolean privateVacation) {
         isPrivateVacation = privateVacation;
     }
+
 }
 
