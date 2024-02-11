@@ -57,7 +57,7 @@ public class Main {
         bookingList.addReservation(reservation3);
 
         bookingList.getBookings();
-
+        bookingList.printAllReservations();
         reservation.getGuests().forEach(guest -> System.out.println("Jméno a příjmení: " + guest.getFirstName() + " " + guest.getSurname()));
 
         reservation2.getGuests().forEach(guest -> System.out.println("Jméno a příjmení: "+guest.getFirstName() + " " + guest.getSurname()));
@@ -77,6 +77,7 @@ public class Main {
         System.out.println(reservation);
 
         System.out.println("Průměrný počet hostů: " + averageGuests);
+
         int numberOfWorkingBookings = bookingList.getNumberOfWorkingBookings();
         System.out.println("Počet pracovních cest: " + numberOfWorkingBookings);
         }

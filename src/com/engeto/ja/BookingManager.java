@@ -1,4 +1,6 @@
 package com.engeto.ja;
+import java.math.BigDecimal;
+import java.time.LocalDate;
 import java.util.Arrays;
 import java.util.List;
 import java.util.ArrayList;
@@ -33,7 +35,22 @@ public class BookingManager {
 
             System.out.println("**********************");
         });}
+    public void printAllReservations() {
+        for (Reservation reservation : reservations) {
+            LocalDate arrival = reservation.getArrival();
+            LocalDate checkout = reservation.getCheckout();
+            String GuestName = String.valueOf(reservation.getGuests());
+            LocalDate GuestBirthDate = reservation.getGuests().getFirst().getDateOfBirth();
+            int numberOfGuests = reservation.getGuests().size();
+            boolean seaView = reservation.getRoom().isHasSeaview();
+            BigDecimal price = reservation.getRoom().getPricePerNight();
 
+            System.out.println(arrival + " až " + checkout + ": " +
+                    GuestName + " (" + GuestBirthDate + ") [" +
+                    numberOfGuests + " hostů, výhledNaMoře " +
+                    (seaView ? "ano" : "ne") + "] za " + price);
+        }
+    }
         public void clearBookings(){
         reservations.clear();
         }

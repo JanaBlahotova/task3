@@ -4,13 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a1c44f54-f5b6-408b-8c6f-72caa0c8902c" name="Changes" comment="ukol 3 - hotel">
+    <list default="true" id="a1c44f54-f5b6-408b-8c6f-72caa0c8902c" name="Changes" comment="ukol 3 - hotel&#10;rozšířeno">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/com/engeto/ja/BookingManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/engeto/ja/BookingManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/engeto/ja/Guest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/engeto/ja/Guest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/engeto/ja/Reservation.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/engeto/ja/Reservation.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/engeto/ja/Room.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/engeto/ja/Room.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -109,11 +106,20 @@
       <option name="project" value="LOCAL" />
       <updated>1707148130566</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="ukol 3 - hotel&#10;rozšířeno">
+      <option name="closed" value="true" />
+      <created>1707493687991</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1707493687991</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="ukol 3 - hotel" />
-    <option name="LAST_COMMIT_MESSAGE" value="ukol 3 - hotel" />
+    <MESSAGE value="ukol 3 - hotel&#10;rozšířeno" />
+    <option name="LAST_COMMIT_MESSAGE" value="ukol 3 - hotel&#10;rozšířeno" />
   </component>
 </project>
