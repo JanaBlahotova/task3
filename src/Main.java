@@ -1,7 +1,7 @@
 import java.math.BigDecimal;
 import java.time.LocalDate;
-import java.util.List;
 import java.util.ArrayList;
+import java.time.format.DateTimeFormatter;
 
 import com.engeto.ja.Guest;
 import com.engeto.ja.Reservation;
@@ -10,10 +10,15 @@ import com.engeto.ja.BookingManager;
 
 public class Main {
     public static void main(String[] args) {
+        LocalDate date = LocalDate.now();
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("d. MMMM yyyy");
+        String formattedDate = date.format(formatter);
+        System.out.println(formattedDate);
+
         BookingManager bookingList = new BookingManager();
 
 
-        Guest guest1 = new Guest("Adéla", "Malíková", LocalDate.of(1993, 3, 13));
+        Guest guest1 = new Guest("Adéla", "Malíková", LocalDate.of(1993,3,13));
         Guest guest2 = new Guest("Jan", "Dvořáček", LocalDate.of(1995, 5, 5));
         Guest guest3 = new Guest("Vlastimil", "Hort", LocalDate.of(1944,1,12));
         Guest guest4 = new Guest("Viktor","Korchnoi",LocalDate.of(1931,3,23));
@@ -28,6 +33,7 @@ public class Main {
         Reservation reservations = new Reservation(guestsList);
 
         System.out.println(guestsList);
+
 
         Room room1 = new Room(1, 1, true, true, BigDecimal.valueOf(1000.00));
         Room room2 = new Room(2, 1, true, true, BigDecimal.valueOf(1000.00));
@@ -56,7 +62,7 @@ public class Main {
         bookingList.addReservation(reservation2);
         bookingList.addReservation(reservation3);
 
-        bookingList.getBookings();
+        bookingList.printBookings();
         bookingList.printAllReservations();
         reservation.getGuests().forEach(guest -> System.out.println("Jméno a příjmení: " + guest.getFirstName() + " " + guest.getSurname()));
 
@@ -65,11 +71,11 @@ public class Main {
         int indexToRetrieve = 2; // Replace with the desired index
         Reservation retrievedReservation = bookingList.getBooking(indexToRetrieve);
 
-        if (retrievedReservation != null) {
+            if (retrievedReservation != null) {
             System.out.println("Požadovaná rezervace: " + retrievedReservation);
-        } else {
+            } else {
             System.out.println("Invalid index or reservation not found.");
-        }
+            }
 
 
         double averageGuests;
@@ -80,7 +86,15 @@ public class Main {
 
         int numberOfWorkingBookings = bookingList.getNumberOfWorkingBookings();
         System.out.println("Počet pracovních cest: " + numberOfWorkingBookings);
+
+        System.out.println((reservations));
+
         }
+
+
+    //+délka rezervace a celková cena
+
+
 }
 
 

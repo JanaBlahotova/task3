@@ -1,7 +1,6 @@
 package com.engeto.ja;
 import java.math.BigDecimal;
 import java.time.LocalDate;
-import java.util.Arrays;
 import java.util.List;
 import java.util.ArrayList;
 public class BookingManager {
@@ -9,21 +8,24 @@ public class BookingManager {
     private List<Reservation> reservations;
 
     public BookingManager() {
+
         this.reservations = new ArrayList<>();
     }
     public void addReservation(Reservation reservation){
+
         reservations.add(reservation);
     }
 
-    public List<Reservation> getReservations() {
-        return reservations;
-    }
 
-       public void setReservations(List<Reservation> reservations) {
+    public BookingManager(List<Reservation> reservations) {
         this.reservations = reservations;
     }
 
-    public void getBookings(){
+    public List<Reservation> getReservations() {
+        return new ArrayList<>(reservations);
+        }
+
+    public void printBookings(){
         reservations.forEach(reservation -> {
             System.out.println("Room: " + reservation.getRoom().getRoomNo());
             System.out.println("Arrival: " + reservation.getArrival());
@@ -70,23 +72,21 @@ public class BookingManager {
         public int getNumberOfWorkingBookings() {
             int count = 0;
             for (Reservation reservation : reservations) {
-                if (!!reservation.isPrivateVacation()) {
+                if (!reservation.isPrivateVacation()) {
                     count++;
                 }
             }
             return count;
         }
 
-        public Reservation getBooking (int index){
-                    if (index>=0 && index < reservations.size()){
-                        return reservations.get(index);
-                    }
-                    else {return null;}
+        public Reservation getBooking (int index) {
+            if (index >= 0 && index < reservations.size()) {
+                return reservations.get(index);
+            } else {
+                return null;
+            }
 
-    }
-
-
-
+        }
 
 
 

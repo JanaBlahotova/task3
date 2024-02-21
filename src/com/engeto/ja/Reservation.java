@@ -10,7 +10,7 @@ public class Reservation {
     private LocalDate checkout;
     private boolean isPrivateVacation;
     private ArrayList<Guest> guests;
-
+    int guestsPerReservation = 0;
     public Reservation(ArrayList<Guest> guests) {
         this.guests = guests;
     }
@@ -58,14 +58,14 @@ public class Reservation {
         this.checkout = checkout;
     }
 
-    int GuestsPerReservation = 0;
+
 
     public int getGuestsPerReservation() {
-        return GuestsPerReservation;
+        return guestsPerReservation;
     }
 
     public void setGuestsPerReservation(int guestsPerReservation) {
-        GuestsPerReservation = guestsPerReservation;
+        guestsPerReservation = guestsPerReservation;
     }
 
     public boolean isPrivateVacation() {

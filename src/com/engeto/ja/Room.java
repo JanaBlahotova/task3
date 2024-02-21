@@ -9,6 +9,7 @@ public class Room {
     private boolean hasSeaview;
     private BigDecimal pricePerNight;
 
+
     public int getRoomNo() {
         return roomNo;
     }
