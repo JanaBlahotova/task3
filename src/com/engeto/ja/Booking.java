@@ -1,17 +1,32 @@
 package com.engeto.ja;
 
+import java.math.BigDecimal;
 import java.time.LocalDate;
+import java.time.temporal.ChronoUnit;
 import java.util.ArrayList;
 
-
-public class Reservation {
+public class Booking {
     private Room room;
     private LocalDate arrival;
     private LocalDate checkout;
     private boolean isPrivateVacation;
     private ArrayList<Guest> guests;
     int guestsPerReservation = 0;
-    public Reservation(ArrayList<Guest> guests) {
+    BigDecimal TotalCost;
+
+    public BigDecimal getTotalCost() {
+        return room.getPricePerNight().multiply(new BigDecimal(getStayDuration()));
+    }
+
+    public int getStayDuration() {
+        if (arrival != null && checkout != null) {
+            return (int) ChronoUnit.DAYS.between(arrival, checkout);
+        } else {
+            return 0;
+        }
+    }
+
+    public Booking(ArrayList<Guest> guests) {
         this.guests = guests;
     }
 
@@ -19,10 +34,11 @@ public class Reservation {
         return guests;
     }
 
-    public void addGuest(Guest guest){
+    public void addGuest(Guest guest) {
         guests.add(guest);
     }
-    public Reservation(Room room, LocalDate arrival, LocalDate checkout, boolean isPrivateVacation){
+
+    public Booking(Room room, LocalDate arrival, LocalDate checkout, boolean isPrivateVacation) {
         this.room = room;
         this.arrival = arrival;
         this.checkout = checkout;
@@ -30,7 +46,18 @@ public class Reservation {
         this.guests = new ArrayList<>();
     }
 
-    public String getIsPrivateVacationAsString(){
+    @Override
+    public String toString() {
+        return "Booking{" +
+                "room=" + room +
+                ", arrival=" + arrival +
+                ", checkout=" + checkout +
+                ", isPrivateVacation=" + isPrivateVacation +
+                ", guests=" + guests +
+                '}';
+    }
+
+    public String getIsPrivateVacationAsString() {
         return isPrivateVacation ? "soukromá cesta" : "pracovní cesta";
     }
 
@@ -58,14 +85,12 @@ public class Reservation {
         this.checkout = checkout;
     }
 
-
-
     public int getGuestsPerReservation() {
         return guestsPerReservation;
     }
 
     public void setGuestsPerReservation(int guestsPerReservation) {
-        guestsPerReservation = guestsPerReservation;
+        this.guestsPerReservation = guestsPerReservation;
     }
 
     public boolean isPrivateVacation() {
@@ -73,8 +98,6 @@ public class Reservation {
     }
 
     public void setPrivateVacation(boolean privateVacation) {
-        isPrivateVacation = privateVacation;
+        this.isPrivateVacation = privateVacation;
     }
-
 }
-
