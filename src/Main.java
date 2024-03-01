@@ -4,7 +4,6 @@ import java.util.ArrayList;
 import java.time.format.DateTimeFormatter;
 import java.util.Arrays;
 import java.util.List;
-import java.util.ResourceBundle;
 
 import com.engeto.ja.Guest;
 import com.engeto.ja.Booking;
@@ -19,6 +18,7 @@ public class Main {
         int doubleGuestReservations = 0;
         int moreThanTwoGuestsReservations = 0;
 
+
         for (Booking booking : bookingManager.getReservations()) {
             int numberOfGuests = booking.getGuests().size();
 
@@ -30,12 +30,11 @@ public class Main {
                 moreThanTwoGuestsReservations++;
             }
 
-            // Délka rezervace a celková cena
-            int stayDuration = booking.getStayDuration();
-            BigDecimal totalCost = booking.getTotalCost();
+        int stayDuration = booking.getStayDuration();
+        BigDecimal totalCost = booking.getTotalCost();
 
-            System.out.printf("Rezervace: %s až %s, Počet hostů: %d, Cena: %s%n",
-                    booking.getArrival(), booking.getCheckout(), numberOfGuests, totalCost);
+            System.out.printf("Rezervace: %s až %s, Počet hostů: %d, Cena: %s%n, Počet dní: %d%n",
+                    booking.getArrival(), booking.getCheckout(), numberOfGuests, totalCost, stayDuration);
         }
 
         // Výpis statistik
@@ -75,7 +74,7 @@ public class Main {
         LocalDate arrival2 = LocalDate.of(2021, 9, 1);
         LocalDate checkout2 = LocalDate.of(2021, 9, 14);
         LocalDate arrival3 = LocalDate.of(2022, 1, 3);
-        LocalDate checkout3 = LocalDate.of(2022, 4, 3);
+        LocalDate checkout3 = LocalDate.of(2022, 2, 3);
         LocalDate arrival4 = LocalDate.of(2023, 6, 1);
         LocalDate checkout4 = LocalDate.of(2023, 6, 7);
         LocalDate arrival5 = LocalDate.of(2023, 7, 18);
@@ -106,7 +105,10 @@ public class Main {
 
         reservation.addGuest(new Guest("Adéla", "Malíková", LocalDate.of(1993, 3, 13)));
         reservation2.addGuest(new Guest("Jan", "Dvořáček", LocalDate.of(1995,5,5)));
+        reservation2.addGuest(new Guest("Jan","Dvořáček",LocalDate.of(1995,5,5)));
         reservation3.addGuest(new Guest("Vlastimil", "Hort", LocalDate.of(1944,1,12)));
+        reservation3.addGuest(new Guest("Viktor","Korchnoi", LocalDate.of(1931,3,23)));
+        reservation3.addGuest(new Guest("David", "Navara", LocalDate.of(1985,3,27)));
         reservation4.addGuest(new Guest("Viktor", "Korchnoi", LocalDate.of(1931,3,23)));
         reservation5.addGuest(new Guest("David", "Navara", LocalDate.of(1985,3,27)));
         reservation6.addGuest(new Guest("Karolína", "Tmavá", LocalDate.of(1988,3,6)));
@@ -121,7 +123,7 @@ public class Main {
 
 
         BookingManager bookingManager = new BookingManager();
-
+        bookingManager.printRecreations();
 
         bookingManager.addBooking(reservation);
         bookingManager.addBooking(reservation2);
@@ -154,6 +156,7 @@ public class Main {
         //a celkový počet rezervací s více než dvěma hosty.
         //+délka rezervace a celková cena
         printGuestStatistics(bookingManager);//výpis statistik
+
 
     }
 }

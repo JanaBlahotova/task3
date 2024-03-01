@@ -1,6 +1,5 @@
 package com.engeto.ja;
 
-import java.math.BigDecimal;
 import java.util.List;
 import java.util.ArrayList;
 
@@ -24,8 +23,6 @@ public class BookingManager {
         reservations.add(reservation);
     }
 
-
-
     public Booking getBooking(int index) {
         // Ověření, zda je index v rozsahu seznamu
         if (index >= 0 && index < reservations.size()) {
@@ -40,20 +37,26 @@ public class BookingManager {
             System.out.println(reservation);
         }
     }
+    List<Booking> privateVacations = new ArrayList<>();
+    public void filterPrivateVacations(){
+        privateVacations.clear();
 
-    public void printRecreations(BookingManager bookingManager) {
+        for (Booking booking : reservations){
+            if (booking.isPrivateVacation()) {
+                privateVacations.add(booking);
+                // Kopírování dalších informací, pokud jsou k dispozici (například hosté, cena, apod.)
+            }
+        }
+    }
+    public void printRecreations () {
         int count=0;
         System.out.println("Rekreační rezervace: ");
-        for (Booking reservation : bookingManager.getReservations()) {
+        for (Booking booking  : privateVacations) {
             if (count >=8){
                 break;
             }
-            if (reservation.isPrivateVacation()) {
-                System.out.println(this.reservations);
-
-                count++;
-            }
-
+            System.out.println(booking);
+            count++;
         }
     }
     public double getAverageStayDuration() {
