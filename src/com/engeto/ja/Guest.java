@@ -3,7 +3,7 @@ import java.time.LocalDate;
 import java.lang.String;
 import java.util.ArrayList;
 
-public class Guest {//O každém hostu musíme uložit jméno, příjmení a datum narození.
+public class Guest {
     private String firstName;
     private String surname;
     private LocalDate dateOfBirth;

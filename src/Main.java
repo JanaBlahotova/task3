@@ -30,21 +30,23 @@ public class Main {
                 moreThanTwoGuestsReservations++;
             }
 
-        int stayDuration = booking.getStayDuration();
-        BigDecimal totalCost = booking.getTotalCost();
+            int stayDuration = booking.getStayDuration();
+            BigDecimal totalCost = booking.getTotalCost();
 
-            System.out.printf("Rezervace: %s až %s, Počet hostů: %d, Cena: %s%n, Počet dní: %d%n",
+            System.out.printf("\nRezervace: %s až %s\nPočet hostů: %d\nCelková cena: %s%nPočet dní celkem: %d%n\n",
+
+
                     booking.getArrival(), booking.getCheckout(), numberOfGuests, totalCost, stayDuration);
         }
 
-        // Výpis statistik
         System.out.println("Celkový počet rezervací s jedním hostem: " + singleGuestReservations);
         System.out.println("Celkový počet rezervací se dvěma hosty: " + doubleGuestReservations);
         System.out.println("Celkový počet rezervací s více než dvěma hosty: " + moreThanTwoGuestsReservations);
     }
+
     public static void main(String[] args) {
         LocalDate date = LocalDate.now();
-        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("d. MMMM yyyy");
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("d. MMMM. yyyy");
         String formattedDate = date.format(formatter);
         System.out.println(formattedDate);
 
@@ -90,40 +92,37 @@ public class Main {
         LocalDate arrival10 = LocalDate.of(2023, 8, 9);
         LocalDate checkout10 = LocalDate.of(2023, 8, 10);
 
-        List<Booking> listOfBookings = new ArrayList<>();
+
 
         Booking reservation = new Booking(room1, arrival, checkout, true);
         Booking reservation2 = new Booking(room3, arrival2, checkout2, true);
         Booking reservation3 = new Booking(room3, arrival3, checkout3, false);
         Booking reservation4 = new Booking(room3, arrival4, checkout4, false);
         Booking reservation5 = new Booking(room2, arrival5, checkout5, true);
-        Booking reservation6 = new Booking(room2, arrival6, checkout6, true);
-        Booking reservation7 = new Booking(room2, arrival7, checkout7, true);
-        Booking reservation8 = new Booking(room2, arrival8, checkout8, true);
-        Booking reservation9 = new Booking(room2, arrival9, checkout9, true);
-        Booking reservation10 = new Booking(room2, arrival10, checkout10, true);
+        Booking reservation6 = new Booking(room2, arrival6, checkout6, false);
+        Booking reservation7 = new Booking(room2, arrival7, checkout7, false);
+        Booking reservation8 = new Booking(room2, arrival8, checkout8, false);
+        Booking reservation9 = new Booking(room2, arrival9, checkout9, false);
+        Booking reservation10 = new Booking(room2, arrival10, checkout10, false);
 
         reservation.addGuest(new Guest("Adéla", "Malíková", LocalDate.of(1993, 3, 13)));
-        reservation2.addGuest(new Guest("Jan", "Dvořáček", LocalDate.of(1995,5,5)));
-        reservation2.addGuest(new Guest("Jan","Dvořáček",LocalDate.of(1995,5,5)));
-        reservation3.addGuest(new Guest("Vlastimil", "Hort", LocalDate.of(1944,1,12)));
-        reservation3.addGuest(new Guest("Viktor","Korchnoi", LocalDate.of(1931,3,23)));
-        reservation3.addGuest(new Guest("David", "Navara", LocalDate.of(1985,3,27)));
-        reservation4.addGuest(new Guest("Viktor", "Korchnoi", LocalDate.of(1931,3,23)));
-        reservation5.addGuest(new Guest("David", "Navara", LocalDate.of(1985,3,27)));
-        reservation6.addGuest(new Guest("Karolína", "Tmavá", LocalDate.of(1988,3,6)));
-        reservation7.addGuest(new Guest("Karolína", "Tmavá", LocalDate.of(1988,3,6)));
-        reservation8.addGuest(new Guest("Karolína", "Tmavá", LocalDate.of(1988,3,6)));
-        reservation9.addGuest(new Guest("Karolína", "Tmavá", LocalDate.of(1988,3,6)));
-        reservation10.addGuest(new Guest("Karolína", "Tmavá", LocalDate.of(1988,3,6)));
-
-
-
-
+        reservation2.addGuest(new Guest("Jan", "Dvořáček", LocalDate.of(1995, 5, 5)));
+        reservation2.addGuest(new Guest("Jan", "Dvořáček", LocalDate.of(1995, 5, 5)));
+        reservation3.addGuest(new Guest("Vlastimil", "Hort", LocalDate.of(1944, 1, 12)));
+        reservation3.addGuest(new Guest("Viktor", "Korchnoi", LocalDate.of(1931, 3, 23)));
+        reservation3.addGuest(new Guest("David", "Navara", LocalDate.of(1985, 3, 27)));
+        reservation4.addGuest(new Guest("Viktor", "Korchnoi", LocalDate.of(1931, 3, 23)));
+        reservation5.addGuest(new Guest("David", "Navara", LocalDate.of(1985, 3, 27)));
+        reservation6.addGuest(new Guest("Karolína", "Tmavá", LocalDate.of(1988, 3, 6)));
+        reservation7.addGuest(new Guest("Karolína", "Tmavá", LocalDate.of(1988, 3, 6)));
+        reservation8.addGuest(new Guest("Karolína", "Tmavá", LocalDate.of(1988, 3, 6)));
+        reservation9.addGuest(new Guest("Karolína", "Tmavá", LocalDate.of(1988, 3, 6)));
+        reservation10.addGuest(new Guest("Karolína", "Tmavá", LocalDate.of(1988, 3, 6)));
 
 
         BookingManager bookingManager = new BookingManager();
-        bookingManager.printRecreations();
+
+
 
         bookingManager.addBooking(reservation);
         bookingManager.addBooking(reservation2);
@@ -136,7 +135,10 @@ public class Main {
         bookingManager.addBooking(reservation9);
         bookingManager.addBooking(reservation10);
 
-        bookingManager.printAllBookings();
+        bookingManager.getBookings();
+
+        double averageStayDuration = bookingManager.getAverageStayDuration();
+        System.out.println("Průměrná délka pobytu: " + averageStayDuration + " dní");
 
         try {
             Booking reservationAtIndex2 = bookingManager.getBooking(2);
@@ -144,21 +146,23 @@ public class Main {
         } catch (IndexOutOfBoundsException e) {
             System.out.println("Index mimo rozsah seznamu rezervací.");
         }
-        for (Booking reservationList : listOfBookings) {
+        for (Booking reservationList : bookingManager.getReservations()) {
             System.out.println(reservationList.toString());
         }
 
-        Booking booking = bookingManager.getBooking(0);
-
-        //Připrav v hlavní třídě metodu printGuestStatistics, která vypíše:
-        //celkový počet rezervací s jedním hostem,
-        //celkový počet rezervací se dvěma hosty,
-        //a celkový počet rezervací s více než dvěma hosty.
-        //+délka rezervace a celková cena
-        printGuestStatistics(bookingManager);//výpis statistik
+            Booking bookings = bookingManager.getBooking(0);
+            Booking bookings2 = bookingManager.getBooking(2);
 
 
+            printGuestStatistics(bookingManager);
+
+            bookingManager.getNumberOfWorkingBookings();
+            bookingManager.getFirstEightPrivateBookings();
+
+            bookingManager.clearAllBookings();
+            bookingManager.getNumberOfWorkingBookings();
+
+        }
     }
-}
 
 

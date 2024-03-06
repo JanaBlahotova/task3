@@ -10,6 +10,7 @@ public class Room {
     private BigDecimal pricePerNight;
 
 
+
     public int getRoomNo() {
         return roomNo;
     }
@@ -49,7 +50,6 @@ public class Room {
     public void setPricePerNight(BigDecimal pricePerNight) {
         this.pricePerNight = pricePerNight;
     }
-
     public Room(int roomNo, int bedcount, boolean hasBalcony, boolean hasSeaview, BigDecimal pricePerNight) {
         this.roomNo = roomNo;
         this.bedcount = bedcount;
@@ -58,3 +58,5 @@ public class Room {
         this.pricePerNight = pricePerNight;
     }
 }
+
+

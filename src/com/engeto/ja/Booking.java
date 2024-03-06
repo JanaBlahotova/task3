@@ -57,47 +57,56 @@ public class Booking {
                 '}';
     }
 
-    public String getIsPrivateVacationAsString() {
-        return isPrivateVacation ? "soukromá cesta" : "pracovní cesta";
+    public String getBookingLength() {
+        if (arrival != null && checkout != null) {
+            long length = ChronoUnit.DAYS.between(arrival, checkout);
+            return String.valueOf(length) + " days";
+        } else {
+            return "0 days";
+        }
     }
 
-    public Room getRoom() {
-        return room;
-    }
+        public String getIsPrivateVacationAsString () {
+            return isPrivateVacation ? "soukromá cesta" : "pracovní cesta";
+        }
 
-    public LocalDate getArrival() {
-        return arrival;
-    }
+        public Room getRoom () {
+            return room;
+        }
 
-    public LocalDate getCheckout() {
-        return checkout;
-    }
+        public LocalDate getArrival () {
+            return arrival;
+        }
 
-    public void setRoom(Room room) {
-        this.room = room;
-    }
+        public LocalDate getCheckout () {
+            return checkout;
+        }
 
-    public void setArrival(LocalDate arrival) {
-        this.arrival = arrival;
-    }
+        public void setRoom (Room room){
+            this.room = room;
+        }
 
-    public void setCheckout(LocalDate checkout) {
-        this.checkout = checkout;
-    }
+        public void setArrival (LocalDate arrival){
+            this.arrival = arrival;
+        }
 
-    public int getGuestsPerReservation() {
-        return guestsPerReservation;
-    }
+        public void setCheckout (LocalDate checkout){
+            this.checkout = checkout;
+        }
 
-    public void setGuestsPerReservation(int guestsPerReservation) {
-        this.guestsPerReservation = guestsPerReservation;
-    }
+        public int getGuestsPerReservation () {
+            return guestsPerReservation;
+        }
 
-    public boolean isPrivateVacation() {
-        return isPrivateVacation;
-    }
+        public void setGuestsPerReservation ( int guestsPerReservation){
+            this.guestsPerReservation = guestsPerReservation;
+        }
 
-    public void setPrivateVacation(boolean privateVacation) {
-        this.isPrivateVacation = privateVacation;
+        public boolean isPrivateVacation () {
+            return isPrivateVacation;
+        }
+
+        public void setPrivateVacation ( boolean privateVacation){
+            this.isPrivateVacation = privateVacation;
+        }
     }
-}

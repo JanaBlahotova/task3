@@ -15,50 +15,55 @@ public class BookingManager {
         return reservations;
     }
 
-    public void setReservations(List<Booking> reservations) {
-        this.reservations = reservations;
-    }
 
     public void addBooking(Booking reservation) {
         reservations.add(reservation);
     }
 
     public Booking getBooking(int index) {
-        // Ověření, zda je index v rozsahu seznamu
+
         if (index >= 0 && index < reservations.size()) {
             return reservations.get(index);
-        } else {
-            throw new IndexOutOfBoundsException(); // Index mimo rozsah, není možné získat rezervaci
         }
+        else throw new IndexOutOfBoundsException();
     }
 
-    public void printAllBookings() {
+
+    public void getBookings() {
         for (Booking reservation : reservations) {
             System.out.println(reservation);
         }
     }
-    List<Booking> privateVacations = new ArrayList<>();
-    public void filterPrivateVacations(){
-        privateVacations.clear();
-
-        for (Booking booking : reservations){
-            if (booking.isPrivateVacation()) {
-                privateVacations.add(booking);
-                // Kopírování dalších informací, pokud jsou k dispozici (například hosté, cena, apod.)
-            }
-        }
-    }
-    public void printRecreations () {
+    public void getNumberOfWorkingBookings() {
         int count=0;
-        System.out.println("Rekreační rezervace: ");
-        for (Booking booking  : privateVacations) {
-            if (count >=8){
-                break;
+        System.out.println("Pracovní pobyty: ");
+        for (var booking  : reservations) {
+            if (booking.isPrivateVacation()) {
+                continue;
             }
+
             System.out.println(booking);
             count++;
         }
     }
+    public void getFirstEightPrivateBookings() {
+        int count=0;
+        System.out.println("Prvních 8 rekreačních pobytů: ");
+        for (var booking  : reservations) {
+            if (!booking.isPrivateVacation()) {
+                continue;
+            }
+            if (count >=8){
+                break;
+            }
+
+            System.out.println(booking);
+            count++;
+        }
+
+
+    }
+
     public double getAverageStayDuration() {
         if (reservations.isEmpty()) {
             return 0.0;
@@ -71,4 +76,10 @@ public class BookingManager {
 
         return (double) totalDuration / reservations.size();
     }
+
+    public void clearAllBookings() {
+        reservations.clear();
+        System.out.println("Seznam rezervací smazán");
+    }
+
 }

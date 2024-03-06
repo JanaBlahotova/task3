@@ -7,7 +7,10 @@
     <list default="true" id="a1c44f54-f5b6-408b-8c6f-72caa0c8902c" name="Changes" comment="ukol 3 - hotel&#10;rozšířeno">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/engeto/ja/Booking.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/engeto/ja/Booking.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/com/engeto/ja/BookingManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/engeto/ja/BookingManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/engeto/ja/Guest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/engeto/ja/Guest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/engeto/ja/Room.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/engeto/ja/Room.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -38,18 +41,18 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Application.Main.executor": "Run",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "git-widget-placeholder": "master",
-    "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "C:/Users/janab/IdeaProjects/task 3",
-    "settings.editor.selected.configurable": "editor.preferences.fonts.default"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Application.Main.executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/janab/IdeaProjects/task 3&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;editor.preferences.fonts.default&quot;
   }
-}]]></component>
+}</component>
   <component name="RunManager">
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="Main" />
@@ -152,7 +155,15 @@
       <option name="project" value="LOCAL" />
       <updated>1709230620416</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="ukol 3 - hotel&#10;rozšířeno">
+      <option name="closed" value="true" />
+      <created>1709276247353</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1709276247353</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
